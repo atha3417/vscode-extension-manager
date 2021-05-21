@@ -1,0 +1,65 @@
+<div class="row">
+    <h1 class="mt-3">VSCode manage extensions in JSON</h1>
+    <div class="col-md-8">
+        
+        <% if (message.length !== 0) { %>
+            <div class="alert alert-success alert-dismissible fade show text-center fw-bold" role="alert">
+                <%= message %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+
+        <a href="/add" class="btn btn-primary mt-2">
+            <i class="bi bi-plus-lg"></i> 
+            Add new VSCode extension to JSON
+        </a>
+
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" class="form-control mt-3" id="search" placeholder="Search..." autofocus>
+            </div>
+        </div>
+
+        <table class="table mt-3 text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Extension Name</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbl-body">
+                <% if (extensions.length < 1) { %>
+                    <tr>
+                        <td colspan="4">
+                            <div class="alert alert-danger fw-bold text-center mt-3" role="alert">
+                                Extension not found!
+                            </div>
+                        </td>
+                    </tr>
+                <% } %>
+
+                <% extensions.forEach((extension, i) => { %>
+                    <tr>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><%= extension.name %></td>
+                        <td><%= extension.author %></td>
+                        <td>
+                            <a href="/edit/<%= extension.name %>" class="btn btn-success badge rounded-pill">
+                                <i class="bi bi-pencil-square"></i> 
+                                Edit
+                            </a>
+                            <form action="/<%= extension.name %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger badge rounded-pill" onclick="return confirm('Are you sure want to delete this extension?')">
+                                    <i class="bi bi-trash"></i>
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

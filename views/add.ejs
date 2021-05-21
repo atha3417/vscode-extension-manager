@@ -1,0 +1,45 @@
+<div class="row">
+    <h1 class="mt-3">Add VSCode extension to JSON</h1>
+    <div class="col-md-6">
+        <form method="POST" action="/">
+            <div class="mb-3">
+                <label for="name" class="form-label"> 
+                    Name 
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control" id="name" name="name" autocomplete="off" value="<%= extension.name %>" autofocus>
+                <% if (typeof errors != 'undefined') { %>
+                    <% errors.forEach(error => { %>
+                        <% if (error.param === 'name') { %>
+                            <div id="name" class="form-text text-danger"><%= error.msg %> </div>
+                        <% } %>
+                    <% }) %>
+                <% } %>
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">
+                    Author 
+                    <span class="text-danger">*</span>
+                </label>
+                <input type="text" class="form-control" id="author" name="author" autocomplete="off" value="<%= extension.author %>">
+                <% if (typeof errors != 'undefined') { %>
+                    <% errors.forEach(error => { %>
+                        <% if (error.param === 'author' ) { %>
+                            <div id="name" class="form-text text-danger">
+                                <%= error.msg %>
+                            </div>
+                        <% } %>
+                    <% }) %>
+                <% } %>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> 
+                Add
+            </button>
+            <a href="/" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> 
+                Back
+            </a>
+        </form>
+    </div>
+</div>

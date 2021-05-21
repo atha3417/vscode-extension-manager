@@ -1,0 +1,210 @@
+[
+    {
+        "name": "advanced-new-file",
+        "author": "patbenatar"
+    },
+    {
+        "name": "Apache Conf",
+        "author": "mrmlnc"
+    },
+    {
+        "name": "Auto Close Tag",
+        "author": "Jun Han"
+    },
+    {
+        "name": "Auto Rename tag",
+        "author": "Jun Han"
+    },
+    {
+        "name": "Better Commands",
+        "author": "Aaron Bond"
+    },
+    {
+        "name": "carbon-now-sh",
+        "author": "Eric Adamski"
+    },
+    {
+        "name": "CodeSnap",
+        "author": "adpyke"
+    },
+    {
+        "name": "Community Material Theme",
+        "author": "Equinusocio"
+    },
+    {
+        "name": "CSS Peek",
+        "author": "Pranya Prakash"
+    },
+    {
+        "name": "DotENV",
+        "author": "mikestead"
+    },
+    {
+        "name": "EditorConfig for VS Code",
+        "author": "EditorConfig"
+    },
+    {
+        "name": "EJS language support",
+        "author": "DigitalBrainstem"
+    },
+    {
+        "name": "es6-string-html",
+        "author": "Tobermory"
+    },
+    {
+        "name": "Excel Viewer",
+        "author": "GrapeCity"
+    },
+    {
+        "name": "File Utils",
+        "author": "Steffen Leistner"
+    },
+    {
+        "name": "indent-rainbow",
+        "author": "oderwat"
+    },
+    {
+        "name": "IntelliSense for CSS",
+        "author": "Zignd"
+    },
+    {
+        "name": "JavaScript (ES6) code snippet",
+        "author": "charalampos karypdis"
+    },
+    {
+        "name": "Laravel Artisan",
+        "author": "Ryan Naddy"
+    },
+    {
+        "name": "Laravel Blade Snippets",
+        "author": "Winnie Lin"
+    },
+    {
+        "name": "Laravel Blade Spacer",
+        "author": "Austen Cameron"
+    },
+    {
+        "name": "Laravel goto view",
+        "author": "codingyu"
+    },
+    {
+        "name": "laravel-goto-controller",
+        "author": "stef-k"
+    },
+    {
+        "name": "Live Server",
+        "author": "Ritwick Dey"
+    },
+    {
+        "name": "Live Share Microsoft",
+        "author": "Microsoft"
+    },
+    {
+        "name": "Live Share Audio",
+        "author": "Microsoft"
+    },
+    {
+        "name": "Live Share Extension Pack",
+        "author": "Microsoft"
+    },
+    {
+        "name": "Material Icon Theme",
+        "author": "philipp Kief"
+    },
+    {
+        "name": "Material Theme",
+        "author": "Equinusocio"
+    },
+    {
+        "name": "MySQL",
+        "author": "Jun Han"
+    },
+    {
+        "name": "open in browser",
+        "author": "TechER"
+    },
+    {
+        "name": "PHP Constructor",
+        "author": "Mehedi Hassan"
+    },
+    {
+        "name": "php cs fixer",
+        "author": "junstyle"
+    },
+    {
+        "name": "PHP Debug",
+        "author": "Felix Becker"
+    },
+    {
+        "name": "PHP DockBlocker",
+        "author": "Neil Brayfield"
+    },
+    {
+        "name": "PHP Files",
+        "author": "Vsevolod Vietluzhskhykh"
+    },
+    {
+        "name": "PHP Getters & Setters",
+        "author": "phproberto"
+    },
+    {
+        "name": "PHP Intelephense",
+        "author": "Ben Newburn"
+    },
+    {
+        "name": "PHP intellisense for codeigniter",
+        "author": "small"
+    },
+    {
+        "name": "PHP Namespace Resolver",
+        "author": "Mehedi Hassan"
+    },
+    {
+        "name": "PHP Server",
+        "author": "brapifra"
+    },
+    {
+        "name": "PHP Snippet Pack",
+        "author": "Jared Malcolm"
+    },
+    {
+        "name": "PHP snippets for vscode",
+        "author": "Yish"
+    },
+    {
+        "name": "Prettier - Code formatter",
+        "author": "Prettier"
+    },
+    {
+        "name": "Pylance",
+        "author": "Microsoft"
+    },
+    {
+        "name": "Python",
+        "author": "Microsoft"
+    },
+    {
+        "name": "Python-autopep8",
+        "author": "himanoa"
+    },
+    {
+        "name": "REST Client",
+        "author": "Huachao Mao"
+    },
+    {
+        "name": "Snippet Creator",
+        "author": "Ryan Olson"
+    },
+    {
+        "name": "Sublime Text Keymap and Settings Import",
+        "author": "Microsoft"
+    },
+    {
+        "name": "vscode-faker",
+        "author": "Budi Irawan"
+    },
+    {
+        "name": "ESLint",
+        "author": "Dirk Beumer"
+    }
+]
