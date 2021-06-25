@@ -112,21 +112,9 @@ app.delete("/:name", (req, res) => {
         req.flash("message", "Extension not found!");
         res.redirect("/");
     } else {
-        axios
-            .get(`${baseUrl}/search/${req.params.name}`)
-            .then((response) => {
-                index
-                    .deleteObject(response.data[0].objectID)
-                    .then((taskID) => {
-                        deleteExtension(req.params.name);
-                        req.flash("message", "Extension successfully deleted!");
-                        res.redirect("/");
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    });
-            })
-            .catch((error) => console.log(error));
+        deleteExtension(req.params.name);
+        req.flash("message", "Extension successfully deleted!");
+        res.redirect("/");
     }
 });
 
