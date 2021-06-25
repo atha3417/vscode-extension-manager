@@ -206,5 +206,9 @@
     {
         "name": "ESLint",
         "author": "Dirk Beumer"
+    },
+    {
+        "name": "change-case",
+        "author": "wmaurer"
     }
 ]

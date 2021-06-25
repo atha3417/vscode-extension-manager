@@ -1,4 +1,4 @@
-const baseUrl = "https://vscode-ext-manager.herokuapp.com";
+const baseUrl = "http://localhost:3000";
 const tblBody = document.getElementById("tbl-body");
 const search = document.getElementById("search");
 search.addEventListener("keyup", () => {

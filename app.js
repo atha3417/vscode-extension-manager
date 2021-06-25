@@ -13,27 +13,30 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const methodOverride = require("method-override");
-const algoliaSearch = require("algoliasearch");
 const axios = require("axios");
-const client = algoliaSearch("4BQRY8MQ2Q", "7b2b6941425069abf4581289ca31b99f");
-const index = client.initIndex("extensions");
 require("dotenv").config();
 const app = express();
-const port = process.env.PORT;
-const baseUrl = "https://vscode-ext-manager.herokuapp.com";
+const port = 3000;
+const baseUrl = "http://localhost:3000";
 
 // Config
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(expressLayouts);
-app.use(express.urlencoded({ extended: true }));
+app.use(
+    express.urlencoded({
+        extended: true,
+    })
+);
 app.set("layout", "layouts/main-layout");
 app.use(methodOverride("_method"));
 // Flash config
 app.use(cookieParser("secret"));
 app.use(
     session({
-        cookie: { maxAge: 6000 },
+        cookie: {
+            maxAge: 6000,
+        },
         secret: "secret",
         resave: true,
         saveUninitialized: true,
@@ -42,13 +45,18 @@ app.use(
 app.use(flash());
 
 app.get("/", (req, res) => {
-    const extensions = loadExtensions();
-    res.render("index", {
-        title: "VSCode manage extensions in JSON",
-        message: req.flash("message"),
-        baseUrl: "https://vscode-ext-manager.herokuapp.com",
-        extensions,
-    });
+    axios
+        .get(`${baseUrl}/search`)
+        .then((response) => {
+            const extensions = response.data;
+            res.render("index", {
+                title: "VSCode manage extensions in JSON",
+                message: req.flash("message"),
+                baseUrl,
+                extensions,
+            });
+        })
+        .catch((error) => console.log(error));
 });
 
 app.get("/add", (req, res) => {
@@ -91,14 +99,7 @@ app.post(
                 extension: req.body,
             });
         } else {
-            index
-                .saveObject(req.body, {
-                    autoGenerateObjectIDIfNotExist: true,
-                })
-                .then(() => {
-                    addExtension(req.body);
-                })
-                .catch((err) => console.log(err));
+            addExtension(req.body);
             req.flash("message", "Extension successfully added!");
             res.redirect("/");
         }
@@ -180,25 +181,10 @@ app.put(
                     delete req.body.oldName;
                     response.data.splice(extensionIndex, 1, req.body);
 
-                    index
-                        .clearObjects()
-                        .then((taskID) => {
-                            index
-                                .saveObjects(response.data, {
-                                    autoGenerateObjectIDIfNotExist: true,
-                                })
-                                .then((taskID) => {
-                                    req.body.oldName = oldName;
-                                    updateExtension(req.body);
-                                    req.flash(
-                                        "message",
-                                        "Extension successfully updated!"
-                                    );
-                                    res.redirect("/");
-                                })
-                                .catch((error) => console.log(error));
-                        })
-                        .catch((err) => console.log(err));
+                    req.body.oldName = oldName;
+                    updateExtension(req.body);
+                    req.flash("message", "Extension successfully updated!");
+                    res.redirect("/");
                 })
                 .catch((error) => console.log(error));
         }
@@ -206,19 +192,9 @@ app.put(
 );
 
 app.get("/search/:q?", (req, res) => {
-    const query = req.params.q ? req.params.q : "";
-    index.search(query).then((result) => {
-        const extensions = loadExtensions();
-        let searchResult = [];
-        result.hits.forEach((data) => {
-            searchResult.push({
-                objectID: data.objectID,
-                name: data.name,
-                author: data.author,
-            });
-        });
-        res.json(searchResult !== [] ? searchResult : extensions);
-    });
+    const extensions = loadExtensions();
+    const extension = findExtension(req.params.q);
+    res.json(extension !== undefined ? extension : extensions);
 });
 
 // Server
