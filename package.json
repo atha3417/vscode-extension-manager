@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "algoliasearch": "^4.9.1",
     "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "connect-flash": "^0.1.1",
