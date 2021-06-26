@@ -210,5 +210,9 @@
     {
         "name": "change-case",
         "author": "wmaurer"
+    },
+    {
+        "name": "Laravel Snippets",
+        "author": "Winnie Lin"
     }
 ]
